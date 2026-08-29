@@ -1,0 +1,9 @@
+# .github/metadata.yaml
+description: "Multi-axis scale factors with intrinsic arithmetic for Swift."
+topics:
+  - primitives
+  - scale
+  - geometry
+homepage: "https://swift-institute.org"
+readme:
+  family: E
