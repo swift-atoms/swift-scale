@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Scale", targets: ["Scale"]),
-        .library(name: "Scale Standard Library Integration", targets: ["Scale Standard Library Integration"]),
-        .library(name: "Scale Foundation Library Integration", targets: ["Scale Foundation Library Integration"]),
+
+        .library(name: "Scale Foundation Integration", targets: ["Scale Foundation Integration"]),
         .library(name: "Scale Test Support", targets: ["Scale Test Support"]),
     ],
     dependencies: [],
@@ -25,20 +25,13 @@ let package = Package(
             ],
             path: "Sources/Scale"
         ),
+        
         .target(
-            name: "Scale Standard Library Integration",
+            name: "Scale Foundation Integration",
             dependencies: [
                 .target(name: "Scale"),
             ],
-            path: "Sources/Scale Standard Library Integration"
-        ),
-        .target(
-            name: "Scale Foundation Library Integration",
-            dependencies: [
-                .target(name: "Scale"),
-                .target(name: "Scale Standard Library Integration"),
-            ],
-            path: "Sources/Scale Foundation Library Integration"
+            path: "Sources/Scale Foundation Integration"
         ),
         .target(
             name: "Scale Test Support",
@@ -52,8 +45,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Scale"),
                 .target(name: "Scale Test Support"),
-                .target(name: "Scale Standard Library Integration"),
-                .target(name: "Scale Foundation Library Integration"),
+                .target(name: "Scale Foundation Integration"),
             ],
             path: "Tests/Scale Tests"
         ),

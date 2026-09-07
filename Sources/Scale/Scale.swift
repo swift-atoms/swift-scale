@@ -8,57 +8,7 @@ public struct Scale<let N: Int, Scalar> {
     }
 }
 
-extension Scale: Sendable where Scalar: Sendable {}
-
-extension Scale: Equatable where Scalar: FloatingPoint {
-
-    @inlinable
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        for i in 0..<N {
-            if lhs.factors[i] != rhs.factors[i] { return false }
-        }
-        return true
-    }
-}
-
-extension Scale: Hashable where Scalar: Hashable & FloatingPoint {
-
-    @inlinable
-    public func hash(into hasher: inout Hasher) {
-        (0..<N).forEach { i in
-            hasher.combine(factors[i])
-        }
-    }
-}
-
-extension Scale: Comparable where N == 1, Scalar: FloatingPoint {
-
-    @inlinable
-    public static func < (lhs: Self, rhs: Self) -> Bool {
-        lhs.value < rhs.value
-    }
-}
-
-#if !hasFeature(Embedded)
-    extension Scale: Codable where Scalar: Codable, Scalar: FloatingPoint {
-
-        public init(from decoder: any Decoder) throws {
-            var container = try decoder.unkeyedContainer()
-            var factors = InlineArray<N, Scalar>(repeating: .zero)
-            for i in 0..<N {
-                factors[i] = try container.decode(Scalar.self)
-            }
-            self.init(factors)
-        }
-
-        public func encode(to encoder: any Encoder) throws {
-            var container = encoder.unkeyedContainer()
-            for i in 0..<N {
-                try container.encode(factors[i])
-            }
-        }
-    }
-#endif
+extension Scale: Swift.Sendable where Scalar: Swift.Sendable {}
 
 extension Scale {
 
@@ -197,27 +147,5 @@ extension Scale where Scalar: FloatingPoint {
     @inlinable
     public var inverted: Self {
         Self.inverted(self)
-    }
-}
-
-extension Scale: ExpressibleByFloatLiteral
-where N == 1, Scalar: ExpressibleByFloatLiteral & FloatingPoint {
-
-    public typealias FloatLiteralType = Scalar.FloatLiteralType
-
-    @inlinable
-    public init(floatLiteral value: FloatLiteralType) {
-        self.init(Scalar(floatLiteral: value))
-    }
-}
-
-extension Scale: ExpressibleByIntegerLiteral
-where N == 1, Scalar: ExpressibleByIntegerLiteral & FloatingPoint {
-
-    public typealias IntegerLiteralType = Scalar.IntegerLiteralType
-
-    @inlinable
-    public init(integerLiteral value: IntegerLiteralType) {
-        self.init(Scalar(integerLiteral: value))
     }
 }
