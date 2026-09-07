@@ -2,7 +2,7 @@ import Scale
 import Testing
 
 @Suite
-struct `Scale Arithmetic Tests` {
+struct `Scaled arithmetic preserves the scale through unary and binary operations` {
 
     @Test
     func `binary operations preserve scale`() {
