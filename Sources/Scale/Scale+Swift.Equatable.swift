@@ -1,4 +1,4 @@
-extension Scale: Swift.Equatable where Scalar: FloatingPoint {
+extension Scale: Swift.Equatable where Scalar: Swift.Equatable {
 
     @inlinable
     public static func == (lhs: Self, rhs: Self) -> Bool {
