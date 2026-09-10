@@ -1,6 +1,6 @@
 #if !hasFeature(Embedded)
 extension Scale: Encodable where Scalar: Encodable {
-    /// Encode factors in axis order.
+
     public func encode(to encoder: any Encoder) throws {
         var container = encoder.unkeyedContainer()
         for i in 0..<N {
@@ -10,7 +10,7 @@ extension Scale: Encodable where Scalar: Encodable {
 }
 
 extension Scale: Decodable where Scalar: Decodable {
-    /// The encoded factor count must match the statically declared dimension.
+
     public init(from decoder: any Decoder) throws {
         var container = try decoder.unkeyedContainer()
         if let count = container.count, count != N {
