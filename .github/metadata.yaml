@@ -1,8 +1,8 @@
 # .github/metadata.yaml
-description: "Multi-axis scale factors with intrinsic arithmetic for Swift."
+description: "Directional sign for Swift — the axis-free positive/negative orientation, with opposite and signedness."
 topics:
   - primitives
-  - scale
+  - direction
   - geometry
 homepage: "https://swift-institute.org"
 readme:
