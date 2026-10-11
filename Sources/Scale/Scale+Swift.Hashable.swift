@@ -1,4 +1,4 @@
-extension Scale: Swift.Hashable where Scalar: Swift.Hashable {
+extension Scale: Swift::Hashable where Scalar: Swift::Hashable {
 
     @inlinable
     public func hash(into hasher: inout Hasher) {

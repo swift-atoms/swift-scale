@@ -1,5 +1,5 @@
-extension Scale: Swift.ExpressibleByFloatLiteral
-where N == 1, Scalar: Swift.ExpressibleByFloatLiteral & FloatingPoint {
+extension Scale: Swift::ExpressibleByFloatLiteral
+where N == 1, Scalar: Swift::ExpressibleByFloatLiteral & FloatingPoint {
 
     public typealias FloatLiteralType = Scalar.FloatLiteralType
 

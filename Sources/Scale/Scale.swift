@@ -8,7 +8,7 @@ public struct Scale<let N: Int, Scalar> {
     }
 }
 
-extension Scale: Swift.Sendable where Scalar: Swift.Sendable {}
+extension Scale: Swift::Sendable where Scalar: Swift::Sendable {}
 
 extension Scale {
 
