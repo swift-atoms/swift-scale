@@ -1,2 +1,2 @@
-@_exported public import Scale
 import Foundation
+@_exported public import Scale

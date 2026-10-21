@@ -57,8 +57,10 @@ struct `Scaled arithmetic preserves the scale through unary and binary operation
 
     @Test func `Decoding does not require encoding`() throws {
         struct Factor: Decodable { let value: Int }
-        let scale = try JSONDecoder().decode(Scale<1, Factor>.self,
-            from: Data(#"[{"value":2}]"#.utf8))
+        let scale = try JSONDecoder().decode(
+            Scale<1, Factor>.self,
+            from: Data(#"[{"value":2}]"#.utf8)
+        )
         #expect(scale[0].value == 2)
     }
 }
